@@ -1,0 +1,35 @@
+// custom scroll-bar
+@mixin custom-scroll-bar($width, $color : #999) {
+  &::-webkit-scrollbar {
+    border-radius: 10px;
+    height: 10px;
+    width: $width;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: $color;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+}
+
+// no scroll bar
+@mixin no-scroll-bar() {
+  &::-webkit-scrollbar {
+    height: 0;
+    width: 0;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    height: 0;
+    width: 0;
+  }
+
+  &::-webkit-scrollbar-track {
+    height: 0;
+    width: 0;
+  }
+}

@@ -1,0 +1,69 @@
+//shortcuts
+$bg: 'bg';
+$card-bg: 'card-bg';
+$card-border: 'card-border';
+$text: 'text';
+$text-important: 'text-important';
+$text-secondary: 'text-secondary';
+$text-badge: 'text-badge';
+$link: 'link';
+$hover: 'hover';
+$logo: 'logo';
+$logo2: 'logo-2';
+$brand-secondary: 'brand-blue';
+$brand-primary: 'brand-red';
+$border: 'border';
+
+//themes
+$themes: (
+        default: (
+                logo: url("../images/brand/logo_vertical.svg"),
+                logo-2: url("../images/brand/logo_horizontal.svg"),
+                bg: $bg--light,
+                card-bg: $bg--card--light,
+                card-border: $card-border--light,
+                text: $text--light,
+                text-important: $text--imp--light,
+                text-secondary: $text--2--light,
+                text-badge: $text--light,
+                link: $brand--secondary--light,
+                hover: $hover--light,
+                brand-red: $brand--primary--light,
+                brand-blue: $brand--secondary--light,
+                border: $border--light
+        ),
+        dark: (
+                logo: url("../images/brand/logo_vertical--invert.svg"),
+                logo-2: url("../images/brand/logo_horizontal--invert.svg"),
+                bg: $bg--dark--top,
+                card-bg: $bg--card--dark,
+                card-border: $card-border--dark,
+                text: $text--dark,
+                text-important: $text--imp--dark,
+                text-secondary: $text--2--dark,
+                text-badge: $text--dark,
+                link: $brand--secondary--dark,
+                hover: $hover--dark,
+                brand-red: $brand--primary--dark,
+                brand-blue: $brand--secondary--dark,
+                border: $border--dark
+        ),
+);
+
+@mixin themed() {
+  @each $theme, $map in $themes {
+    .theme--#{$theme} & {
+      $theme-map: () !global;
+      @each $key, $submap in $map {
+        $value: map-get(map-get($themes, $theme), '#{$key}');
+        $theme-map: map-merge($theme-map, ($key: $value)) !global;
+      }
+      @content;
+      $theme-map: null !global;
+    }
+  }
+}
+
+@function t($key) {
+  @return map-get($theme-map, $key);
+}

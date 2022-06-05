@@ -1,0 +1,181 @@
+$light-color : (
+    "first": #F1FAEE,
+    "second" : #FCFCFC,
+    "third" : #FFFFFF
+);
+
+$dark-color : (
+    "first" : #457B9D,
+    "second": #42A1DC,
+    "third": #0C486F
+);
+@function getColorAB($target, $value) {
+    @return map-get($target, $value);
+} 
+@function getColor($target, $value){
+  @return var(--#{$target}-#{$value});
+}
+
+:root{
+    //light color
+    --light-first : #{getColorAB($light-color, "first")};
+    --light-second : #{getColorAB($light-color, "second")};
+    --light-third : #{getColorAB($light-color, "third")};
+    //dark color
+    --dark-first : #{getColorAB($dark-color, "first")};
+    --dark-second : #{getColorAB($dark-color, "second")};
+    --dark-third : #{getColorAB($dark-color, "third")};
+}
+
+video, img {
+    max-width: 100%;  
+    height: auto;
+}
+
+// Dark theme
+/* body.theme-dark {
+    $primary-color : getColor($dark-color, "first");
+    $secondary-color : getColor($dark-color, "second");
+    $third-color : getColor($dark-color, "third");
+}
+ */
+/* @mixin breakpoint($size) {
+  @media only screen and (min-width: ($size + px)) { @content; }
+} */
+// using the most common breakpoint for width of devices( source: freecodecamp )
+@mixin tablet {
+  @media (min-width: 481px) and (max-width: 768px) {
+    @content;
+  }
+}
+@mixin laptop {
+  @media (min-width: 769px) and (max-width: 1024px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media (min-width: 1025px) and (max-width: 1200px) {
+    @content;
+  }
+}
+@mixin LGdesktop {
+  @media (min-width: 1201px){
+    @content;
+  }
+}
+// for using multiple media
+@mixin media($keys...){
+  @each $media in $keys { 
+    @if ($media== tablet) {
+      @include tablet{
+        @content;
+      }
+    }
+    @else if ($media == laptop) {
+      @include laptop{
+        @content;
+      }
+    }
+    @else if ( $media == desktop) {
+      @include desktop{
+        @content;
+      }
+    }
+    @else if ($media == LGdesktop) {
+      @include LGdesktop{
+        @content;
+      }
+    }
+  }
+}
+
+
+
+@mixin roundedCornersP($size) {
+  border-radius: $size;
+}
+@mixin roundedCorners($size, $unit : px) {
+  border-radius: $size + $unit;
+}
+@mixin roundedCornersL($size) {
+  border-top-left-radius: $size + px;
+  border-bottom-left-radius: $size + px;
+}
+@mixin roundedCornersB($size) {
+  border-bottom-right-radius: $size + px;
+  border-bottom-left-radius: $size + px;
+}
+
+
+@mixin backface-visibility($value) {
+
+  -webkit-backface-visibility: $value;
+     -moz-backface-visibility: $value;
+      backface-visibility: $value;
+}
+
+@mixin linear-gradient($angle, $primary-color, $secondary-color){
+    background: #{$primary-color}; /* Old browsers */
+    background:    -moz-linear-gradient($angle,  #{$primary-color} 0%, #{$secondary-color} 100%); /* FF3.6+ */
+    background:        -webkit-gradient(linear, left bottom, right top, color-stop(0%,#{$secondary-color}), color-stop(100%,#{$secondary-color})); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient($angle,  #{$primary-color} 0%,#{$secondary-color} 100%); /* Chrome10+,Safari5.1+ */
+    background:      -o-linear-gradient($angle,  #{$primary-color} 0%,#{$secondary-color} 100%); /* Opera 11.10+ */
+    background:     -ms-linear-gradient($angle,  #{$primary-color} 0%,#{$secondary-color} 100%); /* IE10+ */
+    background:         linear-gradient($angle,  #{$primary-color} 0%,#{$secondary-color} 100%); /* W3C */
+}
+
+@mixin margin-auto() {
+  margin-left:auto;
+  margin-right:auto;
+}
+// example: @include single-transition(background, 1s, ease-in-out, 0);
+
+@mixin single-transition($property, $duration, $timing-function, $delay) {
+  -webkit-transition: $property $duration $timing-function $delay;
+     -moz-transition: $property $duration $timing-function $delay;
+       -o-transition: $property $duration $timing-function $delay;
+          transition: $property $duration $timing-function $delay;
+}
+
+@mixin dFlex {
+    display: flex;
+}
+
+@mixin dFlexArgs($js, $ai) {
+    @include dFlex();
+    justify-content: $js;
+    align-items: $ai;    
+}
+
+@mixin verticalMargin($marge){
+    margin-top: $marge;
+    margin-bottom: $marge;
+}
+@mixin background($imgpath,$position:0 0,$repeat: no-repeat) {
+    background: {
+        image: url($imgpath);
+        position: $position;
+        repeat: $repeat;
+    }
+}
+
+@mixin designNav{
+    margin-left: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    justify-content: center;
+    align-items: flex-start;
+    & a{
+        text-decoration: none;
+        color : getColor(light, "first");
+        text-align: left;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 500;
+        font-size: 1rem;
+        & i {
+            margin: auto;
+            margin-right: 1rem;
+        }
+    }
+}
