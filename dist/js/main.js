@@ -52,7 +52,7 @@ btnTheme.addEventListener('click', function (event) {
 
     var style = document.documentElement.style;
     if (icon.classList.contains('fa-sun')) {
-        image.src = "dist/img/scope-dark.png";
+        //image.src = "dist/img/scope-dark.png";
         lamp.src = "dist/img/Lamp-dark.png";
         texte.forEach(element => element.style.color = "#FFFFFF");
         style.setProperty('--light-first', '#457B9D');
@@ -65,7 +65,7 @@ btnTheme.addEventListener('click', function (event) {
     } else {
 
         document.querySelector('body').classList.toggle('dark');
-        image.src = "dist/img/scope-light.png";
+        // image.src = "dist/img/scope-light.png";
         texte.forEach(element => element.style.color = "#595260");
         lamp.src = "dist/img/Lamp-light.png";
         style.setProperty('--light-first', '#F1FAEE');
