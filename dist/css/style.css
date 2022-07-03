@@ -759,6 +759,25 @@ body div.container main .wrapper article:nth-child(1) {
   overflow-x: clip;
 }
 
+body div.container main .wrapper article:nth-child(1) .first {
+  -webkit-box-flex: 3;
+      -ms-flex: 3;
+          flex: 3;
+}
+
+body div.container main .wrapper article:nth-child(1) .second {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  position: relative;
+  top: -7rem;
+}
+
+body div.container main .wrapper article:nth-child(1) .second lottie-player {
+  -webkit-transform: scale(0);
+          transform: scale(0);
+}
+
 body div.container main .wrapper article:nth-child(1) .first_p {
   z-index: 1;
   display: -webkit-box;
@@ -811,6 +830,21 @@ body div.container main .wrapper article:nth-child(1) .lamp {
 @media (min-width: 481px) and (max-width: 768px) {
   body div.container main .wrapper article:nth-child(1) {
     padding-top: 7rem;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+  }
+  body div.container main .wrapper article:nth-child(1) .second {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    position: relative;
+    top: -7rem;
+  }
+  body div.container main .wrapper article:nth-child(1) .second lottie-player {
+    -webkit-transform: scale(0);
+            transform: scale(0);
   }
   body div.container main .wrapper article:nth-child(1) .profil {
     font-size: 2rem;
@@ -821,6 +855,21 @@ body div.container main .wrapper article:nth-child(1) .lamp {
 @media (min-width: 769px) and (max-width: 1024px) {
   body div.container main .wrapper article:nth-child(1) {
     padding-top: 6rem;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  body div.container main .wrapper article:nth-child(1) .second {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    position: relative;
+    top: -7rem;
+  }
+  body div.container main .wrapper article:nth-child(1) .second lottie-player {
+    -webkit-transform: scale(3);
+            transform: scale(3);
   }
   body div.container main .wrapper article:nth-child(1) .profil {
     font-size: 2.3rem;
@@ -831,6 +880,21 @@ body div.container main .wrapper article:nth-child(1) .lamp {
 @media (min-width: 1025px) and (max-width: 1200px) {
   body div.container main .wrapper article:nth-child(1) {
     padding-top: 6rem;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  body div.container main .wrapper article:nth-child(1) .second {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    position: relative;
+    top: -7rem;
+  }
+  body div.container main .wrapper article:nth-child(1) .second lottie-player {
+    -webkit-transform: scale(3);
+            transform: scale(3);
   }
   body div.container main .wrapper article:nth-child(1) .profil {
     font-size: 2.3rem;
@@ -841,6 +905,21 @@ body div.container main .wrapper article:nth-child(1) .lamp {
 @media (min-width: 1025px) and (max-width: 1200px) {
   body div.container main .wrapper article:nth-child(1) {
     margin-top: 7rem;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  body div.container main .wrapper article:nth-child(1) .second {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    position: relative;
+    top: -7rem;
+  }
+  body div.container main .wrapper article:nth-child(1) .second lottie-player {
+    -webkit-transform: scale(3);
+            transform: scale(3);
   }
   body div.container main .wrapper article:nth-child(1) .profil {
     font-size: 2.5rem;
@@ -851,6 +930,21 @@ body div.container main .wrapper article:nth-child(1) .lamp {
 @media (min-width: 1201px) {
   body div.container main .wrapper article:nth-child(1) {
     margin-top: 7rem;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  body div.container main .wrapper article:nth-child(1) .second {
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    position: relative;
+    top: -7rem;
+  }
+  body div.container main .wrapper article:nth-child(1) .second lottie-player {
+    -webkit-transform: scale(3);
+            transform: scale(3);
   }
   body div.container main .wrapper article:nth-child(1) .profil {
     font-size: 2.5rem;
@@ -861,6 +955,22 @@ body div.container main .wrapper article:nth-child(1) .lamp {
 body div.container main .wrapper article:nth-child(2) {
   -webkit-perspective: 1000px;
           perspective: 1000px;
+  overflow: scroll;
+}
+
+body div.container main .wrapper article:nth-child(2)::-webkit-scrollbar {
+  border-radius: 10px;
+  height: 10px;
+  width: 3px;
+}
+
+body div.container main .wrapper article:nth-child(2)::-webkit-scrollbar-thumb {
+  background: var(--white-second);
+  border-radius: 10px;
+}
+
+body div.container main .wrapper article:nth-child(2)::-webkit-scrollbar-track {
+  border-radius: 10px;
 }
 
 body div.container main .wrapper article:nth-child(2) .dFlex .about_me_para {
@@ -870,24 +980,7 @@ body div.container main .wrapper article:nth-child(2) .dFlex .about_me_para {
 }
 
 body div.container main .wrapper article:nth-child(2) .dFlex .image {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  cursor: pointer;
-  position: relative;
-  -webkit-transition: all 1s;
-  transition: all 1s;
-}
-
-body div.container main .wrapper article:nth-child(2) .dFlex .image:hover {
-  -webkit-transform: translateY(-12rem);
-          transform: translateY(-12rem);
+  display: none;
 }
 
 @media (min-width: 769px) and (max-width: 1024px) {
@@ -1098,7 +1191,7 @@ body div.container main .wrapper article:nth-child(4)::-webkit-scrollbar {
 }
 
 body div.container main .wrapper article:nth-child(4)::-webkit-scrollbar-thumb {
-  background: var(--dark-second);
+  background: var(--white-second);
   border-radius: 10px;
 }
 
@@ -1378,6 +1471,21 @@ body div.container main .wrapper article:nth-child(6) .recommendations .recommen
 body div.container main .wrapper article:nth-child(6) .recommendations .recommendation .temoinage footer div p {
   color: #ffeb3b;
   font-size: .9rem;
+}
+
+body div.container main .wrapper article:nth-child(7)::-webkit-scrollbar {
+  border-radius: 10px;
+  height: 10px;
+  width: 3px;
+}
+
+body div.container main .wrapper article:nth-child(7)::-webkit-scrollbar-thumb {
+  background: var(--white-second);
+  border-radius: 10px;
+}
+
+body div.container main .wrapper article:nth-child(7)::-webkit-scrollbar-track {
+  border-radius: 10px;
 }
 
 body div.container main .wrapper article:nth-child(7) .fraction {

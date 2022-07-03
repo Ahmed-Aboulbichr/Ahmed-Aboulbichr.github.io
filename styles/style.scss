@@ -219,6 +219,20 @@ body {
                     flex-direction: column;
                     overflow-x: clip;
 
+                    & .first {
+                        flex: 3;
+                    }
+
+                    & .second {
+                        flex: 1;
+                        position: relative;
+                        top: -7rem;
+
+                        & lottie-player {
+                            transform: scale(0);
+                        }
+                    }
+
                     & .first_p {
                         z-index: 1;
                         display: flex;
@@ -264,6 +278,17 @@ body {
 
                     @include media(tablet) {
                         padding-top: 7rem;
+                        flex-direction: column;
+
+                        & .second {
+                            flex: 1;
+                            position: relative;
+                            top: -7rem;
+
+                            & lottie-player {
+                                transform: scale(0);
+                            }
+                        }
 
                         & .profil {
                             font-size: 2rem;
@@ -273,6 +298,17 @@ body {
 
                     @include media(laptop, desktop) {
                         padding-top: 6rem;
+                        flex-direction: row;
+
+                        & .second {
+                            flex: 1;
+                            position: relative;
+                            top: -7rem;
+
+                            & lottie-player {
+                                transform: scale(3);
+                            }
+                        }
 
                         & .profil {
                             font-size: 2.3rem;
@@ -282,6 +318,17 @@ body {
 
                     @include media(desktop, LGdesktop) {
                         margin-top: 7rem;
+                        flex-direction: row;
+
+                        & .second {
+                            flex: 1;
+                            position: relative;
+                            top: -7rem;
+
+                            & lottie-player {
+                                transform: scale(3);
+                            }
+                        }
 
                         & .profil {
                             font-size: 2.5rem;
@@ -292,6 +339,8 @@ body {
 
                 article:nth-child(2) {
                     perspective: 1000px;
+                    overflow: scroll;
+                    @include custom-scroll-bar(3px, getColor(white, "second"));
 
                     .dFlex {
 
@@ -302,14 +351,7 @@ body {
                         }
 
                         & .image {
-                            @include dFlexArgs(center, center);
-                            cursor: pointer;
-                            position: relative;
-                            transition: all 1s;
-
-                            &:hover {
-                                transform: translateY(-12rem);
-                            }
+                            display: none;
                         }
 
                         @include media(laptop, desktop, LGdesktop) {
@@ -428,7 +470,7 @@ body {
                 }
 
                 article:nth-child(4) {
-                    @include custom-scroll-bar(3px, getColor(dark, "second"));
+                    @include custom-scroll-bar(3px, getColor(white, "second"));
                     overflow-y: scroll;
 
                     & .skills_tech {
@@ -627,6 +669,8 @@ body {
                 }
 
                 article:nth-child(7) {
+                    @include custom-scroll-bar(3px, getColor(white, "second"));
+
                     & .fraction {
                         @include dFlexArgs(space-between, center);
                         column-gap: 1rem;

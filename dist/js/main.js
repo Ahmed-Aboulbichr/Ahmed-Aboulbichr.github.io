@@ -46,14 +46,14 @@ btnTheme.addEventListener('click', function (event) {
     icon.classList.toggle("fa-moon");
     icon.classList.toggle("fa-sun");
 
-    var lamp = document.getElementById('lamp');
+    //var lamp = document.getElementById('lamp');
     var texte = document.querySelectorAll('.temoinage_texte');
     var image = document.getElementById('looking');
 
     var style = document.documentElement.style;
     if (icon.classList.contains('fa-sun')) {
         //image.src = "dist/img/scope-dark.png";
-        lamp.src = "dist/img/Lamp-dark.png";
+        //lamp.src = "dist/img/Lamp-dark.png";
         texte.forEach(element => element.style.color = "#FFFFFF");
         style.setProperty('--light-first', '#457B9D');
         style.setProperty('--light-second', '#42A1DC');
@@ -67,7 +67,7 @@ btnTheme.addEventListener('click', function (event) {
         document.querySelector('body').classList.toggle('dark');
         // image.src = "dist/img/scope-light.png";
         texte.forEach(element => element.style.color = "#595260");
-        lamp.src = "dist/img/Lamp-light.png";
+        //lamp.src = "dist/img/Lamp-light.png";
         style.setProperty('--light-first', '#F1FAEE');
         style.setProperty('--light-second', '#FCFCFC');
         style.setProperty('--light-third', '#FFFFFF');
