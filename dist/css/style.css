@@ -130,8 +130,8 @@ body div.container {
   background: -webkit-gradient(linear, left top, left bottom, from(var(--light-first)), to(var(--light-second)));
   background: linear-gradient(to bottom, var(--light-first) 0%, var(--light-second) 100%);
   /* W3C */
-  -webkit-transition: .5s;
-  transition: .5s;
+  -webkit-transition: .3s;
+  transition: .3s;
   margin-left: 2.5%;
 }
 
@@ -160,12 +160,13 @@ body div.container {
 }
 
 body div.container header.menu {
-  position: -webkit-sticky;
-  position: sticky;
+  position: absolute;
+  right: 0px;
   top: 10px;
   background: var(--light-first);
   padding-left: 30px;
   padding-right: 30px;
+  padding: 1rem;
   z-index: 3;
 }
 
@@ -182,15 +183,9 @@ body div.container header.menu {
 }
 
 body div.container .menu-btn {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  display: -ms-inline-grid;
+  display: inline-grid;
+  row-gap: 1rem;
 }
 
 body div.container .menu-btn__burger {
@@ -304,7 +299,10 @@ body div.container main {
   overflow-x: hidden;
   overflow-y: scroll;
   margin-top: 1rem;
-  height: 40rem;
+  height: 80%;
+  height: 98vh;
+  margin-top: 1vh;
+  margin-bottom: 1vh;
 }
 
 body div.container main::-webkit-scrollbar {

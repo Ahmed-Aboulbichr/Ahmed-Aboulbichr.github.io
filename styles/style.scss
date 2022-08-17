@@ -57,7 +57,7 @@ body {
         @include verticalMargin(1vh);
         @include roundedCorners(14);
         @include linear-gradient(to bottom, getColor(light, "first"), getColor(light, "second"));
-        transition: .5s;
+        transition: .3s;
         margin-left: 2.5%;
 
         @include media(tablet) {
@@ -71,11 +71,14 @@ body {
         }
 
         & header.menu {
-            position: sticky;
+            position: absolute;
+            right: 0px;
             top: 10px;
+            // change 
             background: getColor(light, "first");
             padding-left: 30px;
             padding-right: 30px;
+            padding: 1rem;
             z-index: 3;
 
             @include media(laptop, desktop) {
@@ -84,7 +87,8 @@ body {
         }
 
         .menu-btn {
-            @include dFlexArgs(space-between, center);
+            display: inline-grid;
+            row-gap: 1rem;
 
             &__burger {
                 position: relative;
@@ -160,7 +164,9 @@ body {
             overflow-x: hidden;
             overflow-y: scroll;
             margin-top: 1rem;
-            height: 40rem;
+            height: 80%;
+            height: 100vh - 2vh;
+            @include verticalMargin(1vh);
             @include custom-scroll-bar(0px);
 
             @include media(laptop, desktop) {
@@ -941,6 +947,7 @@ body {
 
     }
 
+
     & .shape {
         position: relative;
         width: 100%;
@@ -1068,6 +1075,7 @@ body {
             @include dFlexArgs(center, flex-start);
             gap: 2rem;
             margin: auto;
+
 
             & .container {
                 width: 70%;
