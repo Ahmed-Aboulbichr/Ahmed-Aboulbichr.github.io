@@ -1,12 +1,14 @@
 @import "config";
 @import "scrollbar";
-@import url('https://fonts.googleapis.com/css2?family=Piedra&family=Poppins:wght@400;700&family=Roboto:wght@400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Piedra&family=Poppins:wght@400;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200&display=swap');
 
 * {
     box-sizing: border-box;
     margin: 0px;
     padding: 0px;
-    font-family: 'Roboto', sans-serif;
+    //font-family: 'Roboto', sans-serif;
+    font-family: 'Poppins', sans-serif;
 
     ::selection {
         color: getColor(light, "first");
@@ -53,10 +55,10 @@ body {
         width: 95%;
         height: 100vh - 2vh;
         @include verticalMargin(1vh);
-        @include margin-auto;
         @include roundedCorners(14);
         @include linear-gradient(to bottom, getColor(light, "first"), getColor(light, "second"));
         transition: .5s;
+        margin-left: 2.5%;
 
         @include media(tablet) {
             @include verticalMargin(2.5vh);
@@ -151,7 +153,7 @@ body {
         }
 
         & main {
-            padding: 0 1rem;
+            padding: 0 2rem;
             position: relative;
             scroll-snap-type: y mandatory;
             scroll-behavior: smooth;
@@ -207,9 +209,7 @@ body {
                         @include linear-gradient(to right, getColor(dark, "first"), getColor(dark, "second"));
                     }
 
-                    article:nth-child(#{$i}) h1.title:hover:after {
-                        width: 50%;
-                    }
+                    article:nth-child(#{$i}) h1.title:hover:after {}
                 }
 
                 & article:nth-child(1) {
@@ -236,7 +236,7 @@ body {
                     & .first_p {
                         z-index: 1;
                         display: flex;
-                        font-weight: 800;
+                        font-weight: 500;
                         gap: 1rem;
                         justify-content: flex-start;
                         align-items: center;
@@ -265,7 +265,6 @@ body {
                     & p {
                         z-index: 1;
                         font-size: 1rem;
-                        font-family: 'Roboto', sans-serif;
                         font-weight: 400;
                     }
 
@@ -358,13 +357,14 @@ body {
                             @include dFlexArgs(space-between, center);
 
                             & .texte {
-                                width: 45%;
                                 font-size: 1.1rem;
                             }
 
                             & .image {
+                                display: block;
+
                                 &:hover {
-                                    transform: translate(0);
+                                    transform: translate(1);
                                 }
                             }
                         }
@@ -505,6 +505,113 @@ body {
                     & footer {
                         @include dFlexArgs(center, center);
                         padding-top: 1rem;
+                    }
+                }
+
+                article:nth-child(5) {
+                    position: relative;
+                    overflow: scroll;
+                    @include custom-scroll-bar(3px, getColor(white, "second"));
+
+
+                    section {
+                        width: 100%;
+                        @include verticalMargin(2rem);
+                        display: grid;
+                        grid-template-columns: repeat(1, 1fr);
+                        column-gap: 2rem;
+                        row-gap: 2rem;
+                        width: 100%;
+
+                        & .project {
+                            list-style: none;
+                            position: relative;
+
+                            &:before {
+                                content: '';
+                                display: block;
+                                padding-bottom: 150%;
+                                width: 100%;
+                            }
+
+                            .card__background {
+                                background-size: cover;
+                                background-position: center;
+                                border-radius: 2rem;
+                                bottom: 0;
+                                filter: brightness(0.75) saturate(1.2) contrast(0.85);
+                                left: 0;
+                                position: absolute;
+                                right: 0;
+                                top: 0;
+                                transform-origin: center;
+                                transform: scale(1) translateZ(0);
+                                transition:
+                                    filter 200ms linear,
+                                    transform 200ms linear;
+                            }
+
+                            .card:hover .card__background {
+                                transform: scale(1.05) translateZ(0);
+                            }
+
+                            .card-grid:hover>.card:not(:hover) .card__background {
+                                filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+                            }
+
+                            .card__content {
+                                left: 0;
+                                padding: 2rem;
+                                position: absolute;
+                                top: 0;
+                                height: 90%;
+                            }
+
+                            .card__category {
+                                color: getColorAB($light-color, "second");
+                                font-size: 0.9rem;
+                                margin-bottom: 1rem;
+                                text-transform: uppercase;
+                            }
+
+                            .card__heading {
+                                color: getColorAB($light-color, "first");
+                                font-size: 1.5rem;
+                                text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+                            }
+
+                            & .foot {
+                                position: absolute;
+                                bottom: 0;
+                                color: getColorAB($light-color, "first");
+                                line-height: 2rem;
+
+                                & strong {
+                                    white-space: nowrap;
+                                    margin: 2px;
+                                    @include roundedCornersP(5px);
+                                    padding: 2px 5px;
+                                    color: getColorAB($dark-color, "first");
+                                    background-color: getColorAB($light-color, "first");
+                                }
+                            }
+                        }
+
+                        @include media(tablet) {
+                            grid-template-columns: repeat(2, 1fr);
+                        }
+
+                        @include media(laptop) {
+                            grid-template-columns: repeat(3, 1fr);
+                        }
+
+                        @include media(desktop) {
+                            grid-template-columns: repeat(4, 1fr);
+                        }
+
+                        @include media(LGdesktop) {
+                            grid-template-columns: repeat(3, 1fr);
+                        }
                     }
                 }
 
@@ -959,7 +1066,7 @@ body {
 
         & .flexLGdesktop {
             @include dFlexArgs(center, flex-start);
-            width: 90%;
+            gap: 2rem;
             margin: auto;
 
             & .container {
@@ -981,12 +1088,12 @@ body {
                 position: relative;
                 display: flex;
                 flex-direction: column;
-                align-items: flex-start;
-                padding: 2rem;
+                align-items: center;
+                padding: 1rem;
                 overflow: auto;
                 @include custom-scroll-bar(5px, lightblue);
-                gap: 1rem;
-                width: 25%;
+                gap: .6rem;
+                width: 20%;
                 z-index: 3;
 
                 & a {
@@ -1003,6 +1110,8 @@ body {
                     &:hover {
                         background-color: lightblue;
                         color: #595260;
+                        border-right: 30px solid getColor(dark, "first");
+                        transition: .5s;
                     }
                 }
 

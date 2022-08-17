@@ -5,255 +5,167 @@
         <title>Media Query Test</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <style>
+            :root {
+                --background-dark: #2d3548;
+                --text-light: rgba(255, 255, 255, 0.6);
+                --text-lighter: rgba(255, 255, 255, 0.9);
+                --spacing-s: 8px;
+                --spacing-m: 16px;
+                --spacing-l: 24px;
+                --spacing-xl: 32px;
+                --spacing-xxl: 64px;
+                --width-container: 1200px;
+            }
+
+            * {
+                border: 0;
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            html {
+                height: 100%;
+                font-family: 'Montserrat', sans-serif;
+                font-size: 14px;
+            }
+
             body {
-                background-color: grey;
+                height: 100%;
             }
 
-            .MenuWrap {
-                background-color: indigo;
-                font-family: 'Oswald', sans-serif;
-                font-size: 1rem;
-                min-height: 2.75rem;
+            .hero-section {
+                align-items: flex-start;
+                background-image: linear-gradient(15deg, #0f4667 0%, #2a6973 150%);
                 display: flex;
-                align-items: center;
-                padding: 0 1rem;
+                min-height: 100%;
+                justify-content: center;
+                padding: var(--spacing-xxl) var(--spacing-l);
             }
 
-            .ListItem,
-            .LastItem {
-                color: #ebebeb;
-                text-decoration: none;
+            .card-grid {
+                display: grid;
+                grid-template-columns: repeat(1, 1fr);
+                grid-column-gap: var(--spacing-l);
+                grid-row-gap: var(--spacing-l);
+                max-width: var(--width-container);
+                width: 100%;
             }
 
-            .ListItem {
-                margin-right: 1rem;
-            }
-
-            .LastItem {
-                /*  the magical margin-left  */
-                margin-left: auto;
-            }
-
-            .no-support {
-                text-align: center;
-                padding: 5px;
-                width: 450px;
-                margin-left: auto;
-                margin-right: auto;
-                background: #ee6620;
-                color: #fff;
-                font-size: 16px;
-            }
-
-            @supports(scroll-snap-type: y mandatory) {
-                .no-support {
-                    display: none;
+            @media(min-width: 540px) {
+                .card-grid {
+                    grid-template-columns: repeat(2, 1fr);
                 }
             }
 
-            .example-wrapper {
-                text-align: center;
-                width: 400px;
-                margin-left: auto;
-                margin-right: auto;
+            @media(min-width: 960px) {
+                .card-grid {
+                    grid-template-columns: repeat(4, 1fr);
+                }
             }
 
-            .container {
-                width: 320px;
-                height: 320px;
-                margin-left: auto;
-                margin-right: auto;
-                padding: 10px;
-                margin-bottom: 10px;
-                border: 2px solid #333;
-                overflow: scroll;
+            .card {
+                list-style: none;
                 position: relative;
             }
 
-            .element {
-                width: 300px;
-                height: 300px;
-                scroll-margin: 10px;
-                scroll-snap-align: start;
-                scroll-snap-stop: normal;
-                color: white;
-                font-size: 50px;
-                display: flex;
-                justify-content: center;
-                align-items: center;
+            .card:before {
+                content: '';
+                display: block;
+                padding-bottom: 150%;
+                width: 100%;
             }
 
-            .element:nth-child(1) {
-                background: #1d1e21;
+            .card__background {
+                background-size: cover;
+                background-position: center;
+                border-radius: var(--spacing-l);
+                bottom: 0;
+                filter: brightness(0.75) saturate(1.2) contrast(0.85);
+                left: 0;
+                position: absolute;
+                right: 0;
+                top: 0;
+                transform-origin: center;
+                transform: scale(1) translateZ(0);
+                transition:
+                    filter 200ms linear,
+                    transform 200ms linear;
             }
 
-            .element:nth-child(2) {
-                background: #ee6620;
+            .card:hover .card__background {
+                transform: scale(1.05) translateZ(0);
             }
 
-            .element:nth-child(3) {
-                background: #777ba0;
+            .card-grid:hover>.card:not(:hover) .card__background {
+                filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
             }
 
-            .element:nth-child(4) {
-                background: #da1e62;
+            .card__content {
+                left: 0;
+                padding: var(--spacing-l);
+                position: absolute;
+                top: 0;
             }
 
-            .x-mandatory {
-                scroll-snap-type: x mandatory;
+            .card__category {
+                color: var(--text-light);
+                font-size: 0.9rem;
+                margin-bottom: var(--spacing-s);
+                text-transform: uppercase;
             }
 
-            .y-mandatory {
-                scroll-snap-type: y mandatory;
-            }
-
-            .both-mandatory {
-                scroll-snap-type: both mandatory;
-            }
-
-            .x-proximity {
-                scroll-snap-type: x proximity;
-            }
-
-            .y-proximity {
-                scroll-snap-type: y proximity;
-            }
-
-            .both-proximity {
-                scroll-snap-type: both proximity;
-            }
-
-            /* Below here just styles the container & elements so they look nice */
-            .x-scroll .wrapper {
-                width: 1240px;
-            }
-
-            .x-scroll .element {
-                float: left;
-                margin-right: 10px;
-            }
-
-
-            .y-scroll .element {
-                margin-bottom: 10px;
-            }
-
-            .both-scroll .wrapper {
-                width: 620px;
-                height: 100%;
-                display: grid;
-                grid-template-columns: 300px 300px;
-                grid-gap: 10px;
-            }
-
-            @media screen and (min-width: 320px) {
-                body {
-                    background-color: green;
-                }
-            }
-
-            @media screen and (min-width: 550px) {
-                Chapter 3[ 61] body {
-                    background-color: yellow;
-                }
-            }
-
-            @media screen and (min-width: 768px) {
-                body {
-                    background-color: orange;
-                }
-            }
-
-            @media screen and (min-width: 960px) {
-                body {
-                    background-color: red;
-                }
+            .card__heading {
+                color: var(--text-lighter);
+                font-size: 1.9rem;
+                text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.2);
+                line-height: 1.4;
+                word-spacing: 100vw;
             }
         </style>
     </head>
 
     <body>
-        <div class="MenuWrap">
-            <a href="#" class="ListItem">Home</a>
-            <a href="#" class="ListItem">About Us</a>
-            <a href="#" class="ListItem">Products</a>
-            <a href="#" class="ListItem">Policy</a>
-            <a href="#" class="LastItem">Contact Us </a>
-        </div>
-        <div class="no-support">
-            <p>Heads up: It doesn't look like your browser supports scroll snapping! Check <a
-                    href="https://caniuse.com/#feat=css-snappoints">Can I use</a> for current browser support. Maybe try
-                opening this CodePen in a different browser, like Chrome?</p>
-        </div>
-        <div class="example-wrapper">
-            <p>On all examples, scroll slowly to "feel" the snap points.</p>
-
-            <p><code>scroll-snap-type: x mandatory;</code></p>
-
-            <div class="container x-scroll x-mandatory">
-                <div class="wrapper">
-                    <div class="element">1</div>
-                    <div class="element">2</div>
-                    <div class="element">3</div>
-                    <div class="element">4</div>
-                </div>
-            </div>
-
-            <p><code>scroll-snap-type: y mandatory;</code></p>
-
-            <div class="container y-scroll y-mandatory">
-                <div class="wrapper">
-                    <div class="element">1</div>
-                    <div class="element">2</div>
-                    <div class="element">3</div>
-                    <div class="element">4</div>
-                </div>
-            </div>
-
-            <p><code>scroll-snap-type: both mandatory;</code></p>
-
-            <div class="container both-scroll both-mandatory">
-                <div class="wrapper">
-                    <div class="element">1</div>
-                    <div class="element">2</div>
-                    <div class="element">3</div>
-                    <div class="element">4</div>
-                </div>
-            </div>
-
-            <p><code>scroll-snap-type: x proximity;</code></p>
-
-            <div class="container x-scroll x-proximity">
-                <div class="wrapper">
-                    <div class="element">1</div>
-                    <div class="element">2</div>
-                    <div class="element">3</div>
-                    <div class="element">4</div>
-                </div>
-            </div>
-
-            <p><code>scroll-snap-type: y proximity;</code></p>
-
-            <div class="container y-scroll y-proximity">
-                <div class="wrapper">
-                    <div class="element">1</div>
-                    <div class="element">2</div>
-                    <div class="element">3</div>
-                    <div class="element">4</div>
-                </div>
-            </div>
-
-            <p><code>scroll-snap-type: both proximity;</code></p>
-
-            <div class="container both-scroll both-proximity">
-                <div class="wrapper">
-                    <div class="element">1</div>
-                    <div class="element">2</div>
-                    <div class="element">3</div>
-                    <div class="element">4</div>
-                </div>
-            </div>
-        </div>
+        <section class="hero-section">
+            <div class="card-grid">
+                <a class="card" href="#">
+                    <div class="card__background"
+                        style="background-image: url(https://images.unsplash.com/photo-1557177324-56c542165309?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80)">
+                    </div>
+                    <div class="card__content">
+                        <p class="card__category">Category</p>
+                        <h3 class="card__heading">Example Card Heading</h3>
+                    </div>
+                </a>
+                <a class="card" href="#">
+                    <div class="card__background"
+                        style="background-image: url(https://images.unsplash.com/photo-1557187666-4fd70cf76254?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)">
+                    </div>
+                    <div class="card__content">
+                        <p class="card__category">Category</p>
+                        <h3 class="card__heading">Example Card Heading</h3>
+                    </div>
+                </a>
+                <a class="card" href="#">
+                    <div class="card__background"
+                        style="background-image: url(https://images.unsplash.com/photo-1556680262-9990363a3e6d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)">
+                    </div>
+                    <div class="card__content">
+                        <p class="card__category">Category</p>
+                        <h3 class="card__heading">Example Card Heading</h3>
+                    </div>
+                    </li>
+                    <a class="card" href="#">
+                        <div class="card__background"
+                            style="background-image: url(https://images.unsplash.com/photo-1557004396-66e4174d7bf6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60)">
+                        </div>
+                        <div class="card__content">
+                            <p class="card__category">Category</p>
+                            <h3 class="card__heading">Example Card Heading</h3>
+                        </div>
+                    </a>
+                    <div>
+        </section>
     </body>
 
 </html>
