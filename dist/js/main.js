@@ -28,16 +28,52 @@ function show_menu() {
     }
 }
 
-// var pour le hover du bouton envoyer
-/* const btnEnvoyer = document.querySelector('.button');
+var global_main_touch = 0;
+var global_touch_start = 0;
+var global_touch_end = 0;
+// once user click on the container it will be in the front and hidden the menu
+document.querySelector('#main').ontouchstart = function (e) {
+    console.log(e.touches["0"]["clientX"]);
+    global_touch_start = e.touches["0"]["clientX"];
+}
+document.querySelector('#main').ontouchend = function (e) {
+    console.log(e.changedTouches["0"]["clientX"]);
+    global_touch_end = e.changedTouches["0"]["clientX"];
+    global_main_touch = global_touch_end - global_touch_start;
+    if (global_main_touch > 0) {
+        console.log("to right");
+        if (!btn.classList.contains("open")) {
+            humberger.click();
+        }
+    } else {
+        console.log("to left");
+        if (btn.classList.contains("open")) {
+            humberger.click();
+        }
+    }
+}
 
-btnEnvoyer.onmousemove = function (e) {
-    const x = e.clientX - btnEnvoyer.offsetLeft;
+
+// var pour le hover du bouton envoyer
+/* const btnEnvoyer = document.querySelector('.button');*/
+const mouse = document.querySelector('.mouse');
+
+document.onmousemove = function (e) {
+
+    console.log(e.clientX);
+
+    mouse.style.display = "block";
+    var x = e.offsetX - 20;
+    var y = e.offsetY - 20;
+    mouse.style.left = (e.clientX - 20) + "px";
+    mouse.style.top = (e.clientY - 20) + "px"
+    //mouse.style.transform = "translate3d(" + x + "px, " + y + "px, 0)";
+    /* const x = e.clientX - btnEnvoyer.offsetLeft;
     const y = e.clientY - btnEnvoyer.offsetTop;
 
     document.body.style.setProperty('--x', x + 'px');
-    document.body.style.setProperty('--y', y + 'px');
-} */
+    document.body.style.setProperty('--y', y + 'px'); */
+}
 
 const btnTheme = document.getElementById('theme');
 
