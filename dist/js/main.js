@@ -21,6 +21,7 @@ function show_menu() {
         btn.classList.toggle('open');
         if (btnNavCheck.checked) {
             btnNavCheck.checked = false;
+
         } else {
             btnNavCheck.checked = true;
         }
@@ -40,12 +41,13 @@ document.querySelector('#main').ontouchend = function (e) {
     console.log(e.changedTouches["0"]["clientX"]);
     global_touch_end = e.changedTouches["0"]["clientX"];
     global_main_touch = global_touch_end - global_touch_start;
-    if (global_main_touch > 0) {
+    console.log(Math.round(global_main_touch));
+    if (global_main_touch > 70) {
         console.log("to right");
         if (!btn.classList.contains("open")) {
             humberger.click();
         }
-    } else {
+    } else if (global_main_touch < -70) {
         console.log("to left");
         if (btn.classList.contains("open")) {
             humberger.click();
@@ -60,7 +62,7 @@ const mouse = document.querySelector('.mouse');
 
 document.onmousemove = function (e) {
 
-    console.log(e.clientX);
+    //console.log(e.clientX);
 
     mouse.style.display = "block";
     var x = e.offsetX - 20;

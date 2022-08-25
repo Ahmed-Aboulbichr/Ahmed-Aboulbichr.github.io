@@ -12,15 +12,18 @@
     <body>
         <input type="checkbox" id="nav-checked" />
         <div class="ellipse first_ellipse"><img src="dist/img/ellipse.svg" alt="ellipse"></div>
-
+        <!-- <div class="close-menu">
+            <span><i class="fa fa-close"></i></span>
+        </div> -->
         <div class="flexLGdesktop">
+
             <nav>
-                <a href="#home"><i class="fas fa-home"></i> Home</a>
+                <a href="/"><i class="fas fa-home"></i> Home</a>
                 <a href="#about_me"><i class="fas fa-user-graduate"></i> About Me</a>
                 <a href="#education"><i class="fas fa-book-reader"></i> Education</a>
                 <a href="#skills"><i class="fab fa-creative-commons-nd"></i> Skills</a>
                 <a href="#side_project"><i class="fas fa-tasks"></i> Side Projects</a>
-                <a href="#recommendation"><i class="fas fa-award"></i> Recommendation</a>
+                <a href="#recommandation"><i class="fas fa-award"></i> Recommandation</a>
                 <a href="#contact"><i class="fas fa-at"></i> Contact</a>
             </nav>
             <div class="container">
@@ -40,8 +43,10 @@
                                 <p class="first_p">
                                     <img src="dist/img/scope-light.png" alt="Looking" id="looking">looking for,
                                 </p>
-                                <h1 class="profil">Software Enginneer</h1>
-                                <h1 class="profil">Mobile Developer</h1>
+                                <div class="domain">
+                                    <h1 class="profil word-1">Software Engineer</h1>
+                                    <h1 class="profil word-2">Machine Learning Engineer</h1>
+                                </div>
                                 <p class="first_p">you are in the right place</p>
 
                                 <p class="details first_p"><img src="dist/img/Handshake.png" alt="Welcome"> I'm,</p>
@@ -212,11 +217,41 @@
                                         </div>
                                     </div>
                                 </div>
+                                <div class="project">
+                                    <div class="card__background"
+                                        style="background-image: url('/dist/img/projects/cinema.png')">
+                                    </div>
+                                    <div class="card__content">
+                                        <p class="card__category">Cinéma</p>
+                                        <h3 class="card__heading">Réserver en 1 click</h3>
+                                        <div class="foot">
+                                            <strong>Flutter</strong>
+                                            <strong>Dart</strong>
+                                            <strong>Firebase</strong>
+                                            <strong>The Movie DB</strong>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="project">
+                                    <div class="card__background"
+                                        style="background-image: url('/dist/img/projects/cinema.png')">
+                                    </div>
+                                    <div class="card__content">
+                                        <p class="card__category">Cinéma</p>
+                                        <h3 class="card__heading">Réserver en 1 click</h3>
+                                        <div class="foot">
+                                            <strong>Flutter</strong>
+                                            <strong>Dart</strong>
+                                            <strong>Firebase</strong>
+                                            <strong>The Movie DB</strong>
+                                        </div>
+                                    </div>
+                                </div>
 
                             </section>
                         </article>
-                        <article id="recommendation">
-                            <h1 class="title">Recommendation</h1>
+                        <article id="recommandation">
+                            <h1 class="title">Recommandation</h1>
                             <div class="recommendations">
                                 <div class="card_part recommendation">
                                     <div class="temoinage">
@@ -337,7 +372,7 @@
                                     </a>
                                 </div>
                                 <div class="form">
-                                    <form action="http://formspree.io/aboulbichrahmed2@gmail.com">
+                                    <form action="https://formspree.io/aboulbichrahmed2@gmail.com">
                                         <div class="input full_name">
                                             <input class="form__field" placeholder=" " name="name" type="text"
                                                 id="full_name" autocomplete="off" required>
