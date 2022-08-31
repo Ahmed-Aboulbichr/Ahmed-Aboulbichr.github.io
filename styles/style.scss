@@ -292,10 +292,11 @@ body {
                         align-items: center;
                     }
 
+                    /*
                     @keyframes anim-domain {
-                        /* 0% {
+                         0% {
                             margin-top: -100px;
-                        } */
+                        } 
 
                         33% {
                             margin-top: -50px;
@@ -320,7 +321,7 @@ body {
                         100% {
                             margin-top: 0px;
                         }
-                    }
+                    }*/
 
                     & .profil {
                         height: 50px;
@@ -772,6 +773,7 @@ body {
                             z-index: 7;
                             display: flex;
                             align-items: center;
+                            justify-content: center;
                             width: 90%;
                             height: 100%;
                             transform: translateX(140%);
@@ -847,6 +849,14 @@ body {
                                 background-color: getColor(light, "third");
                                 box-shadow: 0px 1px 8px 1px rgba(0, 0, 0, 0.25);
                                 @include roundedCorners(14);
+
+                                @include media(laptop, desktop) {
+                                    width: 70%;
+                                }
+
+                                @include media(LGdesktop) {
+                                    width: 60%;
+                                }
 
                                 & header {
                                     width: 100px;
@@ -1145,7 +1155,7 @@ body {
             position: fixed;
             border-radius: 50% 50% 0% 100% / 100% 100% 0% 0%;
             z-index: 2;
-            border: 2px solid getColor(dark, "second");
+            border: 2px solid getColor(light, "second");
             bottom: 0;
             border-bottom: none;
             background: transparent;
