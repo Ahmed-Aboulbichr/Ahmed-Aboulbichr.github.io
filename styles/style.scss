@@ -62,6 +62,8 @@ body {
         border: 3px solid getColor(dark, "first");
     }
 
+
+
     div.container {
         position: relative;
         overflow-y: hidden;
@@ -91,7 +93,7 @@ body {
         & header.menu {
             position: absolute;
             right: 0px;
-            top: 10px;
+            top: 8px;
             // change 
             background: getColor(light, "first");
             padding-left: 30px;
@@ -184,7 +186,10 @@ body {
             margin-top: 1rem;
             height: 98%;
             @include verticalMargin(1vh);
-            @include custom-scroll-bar(0px);
+
+            @include custom-scroll-bar(4px, getColor(dark, "second"), thin);
+
+
 
             @include media(laptop, desktop) {
                 padding: 0 2rem;
@@ -431,7 +436,7 @@ body {
                 article:nth-child(2) {
                     perspective: 1000px;
                     overflow: scroll;
-                    @include custom-scroll-bar(3px, getColor(white, "second"));
+                    @include custom-scroll-bar(3px, getColor(white, "second"), none);
 
                     .dFlex {
 
@@ -601,7 +606,7 @@ body {
                 }
 
                 article:nth-child(4) {
-                    @include custom-scroll-bar(3px, getColor(white, "second"));
+                    @include custom-scroll-bar(3px, getColor(white, "second"), none);
                     overflow-y: scroll;
 
                     & .skills_tech {
@@ -642,7 +647,7 @@ body {
                 article:nth-child(5) {
                     position: relative;
                     overflow: scroll;
-                    @include custom-scroll-bar(3px, getColor(white, "second"));
+                    @include custom-scroll-bar(3px, getColor(white, "second"), none);
 
 
                     section {
@@ -927,7 +932,7 @@ body {
                 }
 
                 article:nth-child(7) {
-                    @include custom-scroll-bar(3px, getColor(white, "second"));
+                    @include custom-scroll-bar(3px, getColor(white, "second"), thin);
 
                     & .fraction {
                         margin-top: 2rem;

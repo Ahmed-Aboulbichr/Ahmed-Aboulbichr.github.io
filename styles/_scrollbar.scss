@@ -1,5 +1,5 @@
 // custom scroll-bar
-@mixin custom-scroll-bar($width, $color : #999) {
+@mixin custom-scroll-bar($width, $color : #999, $thin : thin) {
   &::-webkit-scrollbar {
     border-radius: 10px;
     height: 10px;
@@ -14,6 +14,10 @@
   &::-webkit-scrollbar-track {
     border-radius: 10px;
   }
+
+  scrollbar-width: $thin;
+  scroll-behavior: smooth;
+  scrollbar-color: getColor(dark, "second") getColor(light, "second");
 }
 
 // no scroll bar

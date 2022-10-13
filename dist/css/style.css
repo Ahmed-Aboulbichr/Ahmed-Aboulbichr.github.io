@@ -235,7 +235,7 @@ body div.container {
 body div.container header.menu {
   position: absolute;
   right: 0px;
-  top: 10px;
+  top: 8px;
   background: var(--light-first);
   padding-left: 30px;
   padding-right: 30px;
@@ -375,16 +375,19 @@ body div.container main {
   height: 98%;
   margin-top: 1vh;
   margin-bottom: 1vh;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+  scrollbar-color: var(--dark-second) var(--light-second);
 }
 
 body div.container main::-webkit-scrollbar {
   border-radius: 10px;
   height: 10px;
-  width: 0px;
+  width: 4px;
 }
 
 body div.container main::-webkit-scrollbar-thumb {
-  background: #999;
+  background: var(--dark-second);
   border-radius: 10px;
 }
 
@@ -1096,6 +1099,9 @@ body div.container main .wrapper article:nth-child(2) {
   -webkit-perspective: 1000px;
           perspective: 1000px;
   overflow: scroll;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  scrollbar-color: var(--dark-second) var(--light-second);
 }
 
 body div.container main .wrapper article:nth-child(2)::-webkit-scrollbar {
@@ -1392,6 +1398,9 @@ body div.container main .wrapper article:nth-child(3) div.wrapper .educ img.bord
 }
 
 body div.container main .wrapper article:nth-child(4) {
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  scrollbar-color: var(--dark-second) var(--light-second);
   overflow-y: scroll;
 }
 
@@ -1470,6 +1479,9 @@ body div.container main .wrapper article:nth-child(4) footer {
 body div.container main .wrapper article:nth-child(5) {
   position: relative;
   overflow: scroll;
+  scrollbar-width: none;
+  scroll-behavior: smooth;
+  scrollbar-color: var(--dark-second) var(--light-second);
 }
 
 body div.container main .wrapper article:nth-child(5)::-webkit-scrollbar {
@@ -1857,6 +1869,12 @@ body div.container main .wrapper article:nth-child(6) .recommendations .recommen
   font-size: .9rem;
 }
 
+body div.container main .wrapper article:nth-child(7) {
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+  scrollbar-color: var(--dark-second) var(--light-second);
+}
+
 body div.container main .wrapper article:nth-child(7)::-webkit-scrollbar {
   border-radius: 10px;
   height: 10px;
@@ -2001,6 +2019,9 @@ body div.container main .wrapper article:nth-child(7) .fraction .form form .inpu
 body div.container main .wrapper article:nth-child(7) .fraction .form form .input textarea {
   height: 12rem;
   resize: none;
+  scrollbar-width: thin;
+  scroll-behavior: smooth;
+  scrollbar-color: var(--dark-second) var(--light-second);
 }
 
 body div.container main .wrapper article:nth-child(7) .fraction .form form .input textarea::-webkit-scrollbar {
@@ -2368,6 +2389,9 @@ body input[type="checkbox"]:checked ~ .flexLGdesktop nav a i {
             align-items: center;
     padding: 1rem;
     overflow: auto;
+    scrollbar-width: thin;
+    scroll-behavior: smooth;
+    scrollbar-color: var(--dark-second) var(--light-second);
     gap: .6rem;
     width: 20%;
     z-index: 3;
